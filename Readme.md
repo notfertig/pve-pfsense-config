@@ -1,7 +1,26 @@
 
-## pfSense auf deinem Dedicated Server installieren, Host IPv4 Adresse von Proxmox.
+## pfSense auf deinem Dedicated Server mit 1er IP Adresse installieren (Proxmox).
 
-Netzwerk config
+pfSense Download Link: https://www.pfsense.org/download/
+_____________________________________________
+qemu-guest-agent (host):
+Install Command:
+```bash
+pkg install qemu-guest-agent
+```
+
+Shellcmd Command (pfSense):
+```bash
+service qemu-guest-agent start
+```
+ /etc/rc.conf Zusatz Konfiguration (host):
+ ```bash
+qemu_guest_agent_enable="YES"
+qemu_guest_agent_flags="-d -v -l /var/log/qemu-ga.log" 
+```
+_____________________________________________
+
+Netzwerk Config:
 
 ```bash
 auto vmbr0
